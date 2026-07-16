@@ -1,0 +1,4 @@
+@import url("variables.css");
+@import url("reset.css");
+
+body { font-family: system-ui, sans-serif; margin: 0; }
