@@ -1,1 +1,27 @@
-.dashboard { display: grid; }
+.dashboard-body{
+
+    margin:0;
+
+    background:#020617;
+
+    font-family:'Inter',sans-serif;
+
+}
+
+.dashboard-main{
+
+    margin-left:270px;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.dashboard-content{
+
+    padding:40px;
+
+}

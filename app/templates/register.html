@@ -1,3 +1,322 @@
 {% extends "base.html" %}
-{% block title %}Register | VaultX{% endblock %}
-{% block content %}<main><h1>Create account</h1></main>{% endblock %}
+
+{% block title %}
+Create Account | VaultX
+{% endblock %}
+
+{% block content %}
+
+<section class="auth-page">
+
+    <!-- Animated Background -->
+
+    <div class="bg-circle circle-1"></div>
+    <div class="bg-circle circle-2"></div>
+    <div class="bg-circle circle-3"></div>
+
+    <div class="auth-container">
+
+        <!-- LEFT PANEL -->
+
+        <div class="auth-left">
+
+            <a href="{{ url_for('dashboard.index') }}" class="logo">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <span>VaultX</span>
+
+            </a>
+
+            <span class="badge">
+
+                <i class="fa-solid fa-lock"></i>
+
+                AI Powered Security
+
+            </span>
+
+            <h1>
+
+                Build Your
+
+                <span>Digital Identity Vault</span>
+
+            </h1>
+
+            <p>
+
+                Secure your Aadhaar, PAN Card, Passport,
+                Certificates and important documents
+                using AI-powered encryption and
+                intelligent document management.
+
+            </p>
+
+            <div class="feature-list">
+
+                <div class="feature">
+
+                    <i class="fa-solid fa-shield"></i>
+
+                    AES-256 Encryption
+
+                </div>
+
+                <div class="feature">
+
+                    <i class="fa-solid fa-robot"></i>
+
+                    AI OCR Extraction
+
+                </div>
+
+                <div class="feature">
+
+                    <i class="fa-solid fa-qrcode"></i>
+
+                    Secure QR Sharing
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT CARD -->
+
+        <div class="auth-card">
+
+            <h2>
+
+                Create Account
+
+            </h2>
+
+            <p class="subtitle">
+
+                Start protecting your identity today.
+
+            </p>
+
+            <form
+                method="POST"
+                class="auth-form">
+
+                <div class="input-group">
+
+                    <label>
+
+                        Full Name
+
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        <input
+
+                            type="text"
+
+                            name="name"
+
+                            placeholder="John Doe"
+
+                            required
+
+                        >
+
+                    </div>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>
+
+                        Email Address
+
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        <input
+
+                            type="email"
+
+                            name="email"
+
+                            placeholder="john@example.com"
+
+                            required
+
+                        >
+
+                    </div>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>
+
+                        Password
+
+                    </label>
+
+                    <div class="input-box password-box">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+
+                            id="password"
+
+                            type="password"
+
+                            name="password"
+
+                            placeholder="Create Password"
+
+                            required
+
+                        >
+
+                        <i
+
+                            class="fa-solid fa-eye toggle-password"
+
+                            data-target="password">
+
+                        </i>
+
+                    </div>
+
+                </div>
+
+                <div class="strength">
+
+                    <div class="strength-bar">
+
+                        <div id="strengthFill"></div>
+
+                    </div>
+
+                    <small id="strengthText">
+
+                        Password Strength
+
+                    </small>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>
+
+                        Confirm Password
+
+                    </label>
+
+                    <div class="input-box password-box">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+
+                            id="confirmPassword"
+
+                            type="password"
+
+                            name="confirm_password"
+
+                            placeholder="Confirm Password"
+
+                            required
+
+                        >
+
+                        <i
+
+                            class="fa-solid fa-eye toggle-password"
+
+                            data-target="confirmPassword">
+
+                        </i>
+
+                    </div>
+
+                </div>
+
+                <label class="checkbox">
+
+                    <input
+                        type="checkbox"
+                        required>
+
+                    <span>
+
+                        I agree to the
+
+                        <a href="#">
+
+                            Terms & Conditions
+
+                        </a>
+
+                    </span>
+
+                </label>
+
+                <button
+                    class="register-btn"
+                    type="submit">
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                    Create Secure Vault
+
+                </button>
+
+            </form>
+
+            <div class="divider">
+
+                <span>
+
+                    OR
+
+                </span>
+
+            </div>
+
+            <a
+                href="{{ url_for('auth.login') }}"
+                class="login-link">
+
+                Already have an account?
+
+                <strong>
+
+                    Sign In
+
+                </strong>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+
+{% endblock %}

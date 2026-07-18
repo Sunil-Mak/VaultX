@@ -1,0 +1,49 @@
+<header class="topbar">
+
+    <div class="topbar-left">
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                placeholder="Search documents...">
+
+        </div>
+
+    </div>
+
+    <div class="topbar-right">
+
+        <button class="notification-btn">
+
+            <i class="fa-regular fa-bell"></i>
+
+            <span class="notification-dot"></span>
+
+        </button>
+
+        <div class="profile-menu">
+
+            <img
+                src="{{ url_for('static', filename='images/default-avatar.png') }}"
+                alt="Profile">
+
+            <div>
+
+                <h4>
+                    {{ current_user.name if current_user.is_authenticated else "Sunil" }}
+                </h4>
+
+                <span>User</span>
+
+            </div>
+
+            <i class="fa-solid fa-chevron-down"></i>
+
+        </div>
+
+    </div>
+
+</header>

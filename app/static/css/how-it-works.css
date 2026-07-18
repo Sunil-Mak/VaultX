@@ -1,0 +1,195 @@
+/* ==========================
+   HOW IT WORKS
+========================== */
+
+.how-it-works {
+
+    padding: 120px 8%;
+
+    background: #020617;
+
+}
+
+.how-container {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    text-align: center;
+
+}
+
+.how-tag {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 10px 18px;
+
+    border-radius: 50px;
+
+    background: rgba(56,189,248,.1);
+
+    border: 1px solid rgba(56,189,248,.3);
+
+    color: #38bdf8;
+
+    margin-bottom: 25px;
+
+}
+
+.how-title {
+
+    font-size: 46px;
+
+    color: white;
+
+    margin-bottom: 20px;
+
+}
+
+.how-title span {
+
+    color: #38bdf8;
+
+}
+
+.how-description {
+
+    color: #94a3b8;
+
+    max-width: 700px;
+
+    margin: auto;
+
+    line-height: 1.7;
+
+    font-size: 18px;
+
+}
+
+.steps-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 30px;
+
+    margin-top: 70px;
+
+}
+
+.step-card {
+
+    background: rgba(255,255,255,.05);
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    border-radius: 20px;
+
+    padding: 35px 25px;
+
+    transition: .35s ease;
+
+}
+
+.step-card:hover {
+
+    transform: translateY(-12px);
+
+    border-color: #38bdf8;
+
+    box-shadow: 0 20px 40px rgba(56,189,248,.15);
+
+}
+
+.step-number {
+
+    width: 60px;
+
+    height: 60px;
+
+    border-radius: 50%;
+
+    background: #38bdf8;
+
+    color: white;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: auto auto 25px;
+
+}
+
+.step-icon {
+
+    font-size: 48px;
+
+    color: #38bdf8;
+
+    margin-bottom: 20px;
+
+}
+
+.step-card h3 {
+
+    color: white;
+
+    margin-bottom: 15px;
+
+    font-size: 22px;
+
+}
+
+.step-card p {
+
+    color: #94a3b8;
+
+    line-height: 1.7;
+
+}
+
+@media(max-width:1000px){
+
+.steps-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:650px){
+
+.steps-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.how-title{
+
+font-size:34px;
+
+}
+
+.how-it-works{
+
+padding:80px 5%;
+
+}
+
+}

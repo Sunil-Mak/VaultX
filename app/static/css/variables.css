@@ -1,1 +1,40 @@
-:root { --primary: #2563eb; }
+:root{
+
+    --primary:#2563EB;
+    --primary-dark:#1E40AF;
+
+    --secondary:#0F172A;
+
+    --accent:#06B6D4;
+
+    --success:#10B981;
+
+    --danger:#EF4444;
+
+    --warning:#F59E0B;
+
+    --background:#F8FAFC;
+
+    --surface:#FFFFFF;
+
+    --text:#1E293B;
+
+    --text-light:#64748B;
+
+    --border:#E2E8F0;
+
+    --shadow-sm:0 2px 8px rgba(0,0,0,.05);
+
+    --shadow-md:0 8px 24px rgba(0,0,0,.08);
+
+    --shadow-lg:0 20px 60px rgba(0,0,0,.12);
+
+    --radius-sm:8px;
+
+    --radius:16px;
+
+    --radius-lg:28px;
+
+    --transition:.35s ease;
+
+}

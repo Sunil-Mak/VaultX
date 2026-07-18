@@ -1,19 +1,633 @@
 {% extends "base.html" %}
 
 {% block title %}
-VaultX
+VaultX | Your Intelligent Digital Identity Vault
 {% endblock %}
 
 {% block content %}
 
-<div class="hero">
-    <h1>VaultX</h1>
-    <p>Secure Digital Identity Vault</p>
+<!-- ========================= -->
+<!-- HERO SECTION -->
+<!-- ========================= -->
 
-    <a href="{{ url_for('auth.login') }}">Login</a>
+<section class="hero" id="home">
 
-    <a href="{{ url_for('auth.register') }}">Create Account</a>
+  <div class="container">
 
-</div>
+    <!-- Left Content -->
+
+    <div class="hero-content">
+
+      <div class="hero-tag">
+        <i class="fa-solid fa-shield-halved"></i>
+        AI Powered Security Platform
+      </div>
+
+      <h1 class="hero-title">
+
+        Your Intelligent
+
+        <span>Digital Identity</span>
+
+        Vault
+
+      </h1>
+
+      <p class="hero-description">
+
+        Secure, organize and access your important documents
+        from anywhere with AI-powered verification, OCR,
+        encrypted storage and smart sharing.
+
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="{{ url_for('auth.register') }}" class="btn-primary">
+
+          Get Started
+
+        </a>
+
+        <a href="#features" class="btn-secondary">
+
+          Explore Features
+
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- Right Side -->
+
+    <div class="hero-image">
+
+      <!-- Main Card -->
+
+      <div class="vault-card">
+
+        <i class="fa-solid fa-vault"></i>
+
+      </div>
+
+      <!-- Floating Card -->
+
+      <div class="floating-card card-one">
+
+        <i class="fa-solid fa-file-shield"></i>
+
+        <div>
+
+          <h4>Encrypted</h4>
+
+          <span>AES-256 Protected</span>
+
+        </div>
+
+      </div>
+
+      <!-- Floating Card -->
+
+      <div class="floating-card card-two">
+
+        <i class="fa-solid fa-qrcode"></i>
+
+        <div>
+
+          <h4>Smart Share</h4>
+
+          <span>QR Secure Links</span>
+
+        </div>
+
+      </div>
+
+      <!-- Floating Card -->
+
+      <div class="floating-card card-three">
+
+        <i class="fa-solid fa-robot"></i>
+
+        <div>
+
+          <h4>AI Assistant</h4>
+
+          <span>Gemini Powered</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Scroll Down -->
+
+  <a href="#features" class="scroll-down">
+
+    <i class="fa-solid fa-angles-down"></i>
+
+  </a>
+
+</section>
+<section class="features" id="features">
+
+  <div class="features-container">
+
+    <h2 class="features-title">
+      Why Choose VaultX?
+    </h2>
+
+    <p class="features-subtitle">
+      A secure digital identity vault to protect and manage your important documents.
+    </p>
+
+
+    <div class="feature-grid">
+
+
+      <div class="feature-card">
+
+        <div class="feature-icon">
+          🔐
+        </div>
+
+        <h3>
+          Secure Storage
+        </h3>
+
+        <p>
+          Keep your identity documents protected with advanced security.
+        </p>
+
+      </div>
+
+
+
+      <div class="feature-card">
+
+        <div class="feature-icon">
+          📄
+        </div>
+
+        <h3>
+          Digital Documents
+        </h3>
+
+        <p>
+          Store Aadhaar, certificates and important files digitally.
+        </p>
+
+      </div>
+
+
+
+      <div class="feature-card">
+
+        <div class="feature-icon">
+          🤖
+        </div>
+
+        <h3>
+          AI OCR
+        </h3>
+
+        <p>
+          Extract document information automatically using AI.
+        </p>
+
+      </div>
+
+
+
+      <div class="feature-card">
+
+        <div class="feature-icon">
+          🛡️
+        </div>
+
+        <h3>
+          Identity Protection
+        </h3>
+
+        <p>
+          Protect your personal information from unauthorized access.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="security" id="security">
+
+ 
+
+  <div class="security-container">
+
+
+    <div class="security-content">
+
+      <div class="security-tag">
+        <i class="fa-solid fa-lock"></i>
+        Advanced Security
+      </div>
+
+
+      <h2>
+        Your Data.
+        <span>Your Control.</span>
+      </h2>
+
+
+      <p>
+        VaultX protects your digital identity with
+        encryption, AI verification and secure document management.
+      </p>
+
+
+      <div class="security-points">
+
+
+        <div class="security-item">
+
+          <i class="fa-solid fa-key"></i>
+
+          <div>
+            <h3>AES-256 Encryption</h3>
+            <p>
+              Your documents are encrypted and protected.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="security-item">
+
+          <i class="fa-solid fa-user-shield"></i>
+
+          <div>
+            <h3>Identity Protection</h3>
+            <p>
+              Prevent unauthorized access to your identity.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="security-item">
+
+          <i class="fa-solid fa-brain"></i>
+
+          <div>
+            <h3>AI Verification</h3>
+            <p>
+              Intelligent document verification using AI.
+            </p>
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+    <div class="security-image">
+
+      <div class="security-shield">
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</section> <!--Security Section ens -->
+
+<section class="about" id="about">
+
+    <div class="about-container">
+
+
+        <div class="about-content">
+
+
+            <div class="about-tag">
+
+                <i class="fa-solid fa-fingerprint"></i>
+
+                About VaultX
+
+            </div>
+
+
+            <h2>
+
+                Protecting Your
+
+                <span>Digital Identity</span>
+
+                With Intelligence
+
+            </h2>
+
+
+            <p>
+
+                VaultX is an AI-powered digital identity vault
+                designed to securely store, verify and manage
+                your important documents anytime, anywhere.
+
+            </p>
+
+
+
+            <div class="about-stats">
+
+
+                <div class="stat-card">
+
+                    <h3>256-bit</h3>
+
+                    <p>Encryption Security</p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3>AI</h3>
+
+                    <p>Smart Verification</p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3>24/7</h3>
+
+                    <p>Secure Access</p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3>100%</h3>
+
+                    <p>User Privacy</p>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="about-image">
+
+
+            <div class="identity-card">
+
+                <i class="fa-solid fa-fingerprint"></i>
+
+                <h3>
+                    VaultX ID
+                </h3>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+<section class="how-it-works" id="how-it-works">
+
+    <div class="how-container">
+
+        <div class="how-tag">
+
+            <i class="fa-solid fa-gears"></i>
+
+            How It Works
+
+        </div>
+
+        <h2 class="how-title">
+
+            Secure Your Documents
+
+            <span>In Four Simple Steps</span>
+
+        </h2>
+
+        <p class="how-description">
+
+            VaultX makes document management simple, secure, and intelligent—from uploading your files to sharing them safely whenever you need.
+
+        </p>
+
+        <div class="steps-grid">
+
+            <div class="step-card">
+
+                <div class="step-number">1</div>
+
+                <div class="step-icon">
+                    <i class="fa-solid fa-upload"></i>
+                </div>
+
+                <h3>Upload</h3>
+
+                <p>
+                    Upload your identity documents securely to your personal vault.
+                </p>
+
+            </div>
+
+            <div class="step-card">
+
+                <div class="step-number">2</div>
+
+                <div class="step-icon">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+
+                <h3>AI Verification</h3>
+
+                <p>
+                    AI extracts and verifies document information automatically.
+                </p>
+
+            </div>
+
+            <div class="step-card">
+
+                <div class="step-number">3</div>
+
+                <div class="step-icon">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+
+                <h3>Secure Storage</h3>
+
+                <p>
+                    Documents are encrypted and safely stored in your VaultX account.
+                </p>
+
+            </div>
+
+            <div class="step-card">
+
+                <div class="step-number">4</div>
+
+                <div class="step-icon">
+                    <i class="fa-solid fa-share-nodes"></i>
+                </div>
+
+                <h3>Share Securely</h3>
+
+                <p>
+                    Generate secure links or QR codes to share documents with full control.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="cta">
+
+    <div class="cta-container">
+
+        <h2>
+
+            Ready to Secure Your
+
+            <span>Digital Identity?</span>
+
+        </h2>
+
+        <p>
+
+            Join VaultX today and securely manage your important
+            documents with AI-powered verification, encrypted
+            storage and secure sharing.
+
+        </p>
+
+        <div class="cta-buttons">
+
+            <a href="{{ url_for('auth.register') }}"
+               class="btn-primary">
+
+                Get Started
+
+            </a>
+
+            <a href="{{ url_for('auth.login') }}"
+               class="btn-secondary">
+
+                Sign In
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div>
+
+            <div class="footer-logo">
+
+                VaultX
+
+            </div>
+
+            <p>
+
+                Your Intelligent Digital Identity Vault.
+                Secure documents, AI verification,
+                encrypted storage and smart sharing.
+
+            </p>
+
+        </div>
+
+        <div>
+
+            <h3>Product</h3>
+
+            <a href="#features">Features</a><br>
+
+            <a href="#security">Security</a><br>
+
+            <a href="#about">About</a>
+
+        </div>
+
+        <div>
+
+            <h3>Resources</h3>
+
+            <a href="#">Documentation</a><br>
+
+            <a href="#">FAQ</a><br>
+
+            <a href="#">Support</a>
+
+        </div>
+
+        <div>
+
+            <h3>Legal</h3>
+
+            <a href="#">Privacy Policy</a><br>
+
+            <a href="#">Terms of Service</a>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        © 2026 VaultX. All Rights Reserved.
+
+    </div>
+
+</footer>
+
 
 {% endblock %}
