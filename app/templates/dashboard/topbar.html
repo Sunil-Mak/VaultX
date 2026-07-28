@@ -1,46 +1,44 @@
 <header class="topbar">
 
-    <div class="topbar-left">
+    <div>
 
-        <div class="search-box">
+        <h2>
 
-            <i class="fa-solid fa-magnifying-glass"></i>
+            Welcome back,
 
-            <input
-                type="text"
-                placeholder="Search documents...">
+            {{ current_user.name }}
 
-        </div>
+            👋
+
+        </h2>
+
+        <p>
+
+            Your secure digital vault is ready.
+
+        </p>
 
     </div>
 
     <div class="topbar-right">
 
-        <button class="notification-btn">
+        <button>
 
-            <i class="fa-regular fa-bell"></i>
-
-            <span class="notification-dot"></span>
+            <i class="fa-solid fa-bell"></i>
 
         </button>
 
-        <div class="profile-menu">
+        <div class="profile">
 
             <img
-                src="{{ url_for('static', filename='images/default-avatar.png') }}"
+                src="https://ui-avatars.com/api/?name={{ current_user.name }}&background=2563eb&color=fff"
                 alt="Profile">
 
-            <div>
+            <span>
 
-                <h4>
-                    {{ current_user.name if current_user.is_authenticated else "Sunil" }}
-                </h4>
+                {{ current_user.name }}
 
-                <span>User</span>
-
-            </div>
-
-            <i class="fa-solid fa-chevron-down"></i>
+            </span>
 
         </div>
 

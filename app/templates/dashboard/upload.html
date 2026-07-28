@@ -1,0 +1,36 @@
+{% extends "base_dashboard.html" %}
+
+{% block title %}
+Upload Document
+{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-card">
+
+    <h2>Upload Document</h2>
+
+    <form
+        method="POST"
+        enctype="multipart/form-data">
+
+        <input
+            type="file"
+            name="document"
+            required>
+
+        <br><br>
+
+        <button
+            class="btn btn-primary"
+            type="submit">
+
+            Upload
+
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

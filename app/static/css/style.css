@@ -42,6 +42,8 @@
 
 @import url("auth.css");
 
+@import url("upload.css");
+
 html {
     scroll-behavior: smooth;
 }

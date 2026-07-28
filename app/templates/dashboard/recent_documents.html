@@ -1,0 +1,81 @@
+<section class="recent-documents">
+
+    <div class="section-header">
+
+        <h2>Recent Documents</h2>
+
+        <a href="{{ url_for('documents.upload') }}" class="btn-primary">
+            Upload New
+        </a>
+
+    </div>
+
+    {% if documents %}
+
+        <table class="documents-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Name</th>
+
+                    <th>Category</th>
+
+                    <th>Size</th>
+
+                    <th>Uploaded</th>
+
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for document in documents %}
+
+                <tr>
+
+                    <td>{{ document.original_name }}</td>
+
+                    <td>{{ document.category or "General" }}</td>
+
+                    <td>{{ (document.file_size / 1024)|round(1) }} KB</td>
+
+                    <td>{{ document.uploaded_at.strftime("%d %b %Y") }}</td>
+
+                    <td>
+
+                        <a
+                            href="{{ url_for('documents.download', document_id=document.id) }}"
+                            class="btn-primary">
+
+                            Download
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    {% else %}
+
+        <div class="empty-state">
+
+            <h3>No documents uploaded</h3>
+
+            <p>Upload first document to start using VaultX.</p>
+
+        </div>
+
+    {% endif %}
+
+</section>

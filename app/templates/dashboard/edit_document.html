@@ -1,0 +1,38 @@
+{% extends "base_dashboard.html" %}
+
+{% block title %}Edit Document{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-card">
+
+    <h2>Edit Document</h2>
+
+    <form method="POST">
+
+        <label>Name</label>
+
+        <input
+            type="text"
+            name="name"
+            value="{{ document.original_name }}"
+            required
+        >
+
+        <label>Category</label>
+
+        <input
+            type="text"
+            name="category"
+            value="{{ document.category }}"
+        >
+
+        <button type="submit" class="btn-primary">
+            Save Changes
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

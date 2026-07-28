@@ -1,7 +1,7 @@
 from flask import Blueprint
 
-dashboard_bp = Blueprint(
-    "dashboard",
+documents_bp = Blueprint(
+    "documents",
     __name__
 )
 
