@@ -45,6 +45,10 @@ def upload():
             flash("Select file.", "danger")
             return redirect(request.url)
 
+        if not file.filename:
+            flash("No filename provided.", "danger")
+            return redirect(request.url)
+
         if not allowed_file(file.filename):
 
             flash("Unsupported file type.", "danger")
@@ -72,7 +76,7 @@ def upload():
         print(text)
         print("=" * 50)
 
-        document = Document(
+        document = Document(  # pyrefly: ignore[bad-argument-type]
 
             filename=unique_name,
 
@@ -82,8 +86,8 @@ def upload():
 
             file_size=os.path.getsize(upload_path),
 
-            owner_id=current_user.id,
-            
+            owner_id=int(current_user.id),
+
             extracted_text=text,
 
             is_encrypted=True
