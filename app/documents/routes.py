@@ -18,12 +18,16 @@ from flask_login import (
 
 from werkzeug.utils import secure_filename
 
+from app.ai.analyzer import analyze_document
+
 from . import documents_bp
 from .utils import allowed_file
 
 from ..extensions import db
 from ..models import Document
 from .ocr import extract_text
+
+import json
 
 
 
@@ -75,22 +79,32 @@ def upload():
         print("=" * 50)
         print(text)
         print("=" * 50)
+        
+        analysis = analyze_document(text)
 
         document = Document(  # pyrefly: ignore[bad-argument-type]
 
             filename=unique_name,
 
             original_name=original_name,
-
-            category="General",
-
+            
+            category=analysis["category"],
+            
             file_size=os.path.getsize(upload_path),
 
             owner_id=int(current_user.id),
 
             extracted_text=text,
 
-            is_encrypted=True
+            is_encrypted=True,
+            
+            ai_summary=analysis["summary"],
+            
+            ai_category=analysis["category"],
+    
+            ai_confidence=analysis["confidence"],
+         
+            ai_analysis=str(analysis)
         )
             
             

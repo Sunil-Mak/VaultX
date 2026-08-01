@@ -1,4 +1,5 @@
 from flask import Flask
+from .ai import ai_bp
 
 from config import Config
 from .extensions import db, login_manager
