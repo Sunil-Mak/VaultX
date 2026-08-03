@@ -16,6 +16,7 @@ from flask_login import (
     current_user
 )
 
+from sqlalchemy import text
 from werkzeug.utils import secure_filename
 
 from app.ai.analyzer import analyze_document
@@ -36,7 +37,7 @@ import json
 def upload():
 
     if request.method == "POST":
-
+        print("1. Upload started")
         if "document" not in request.files:
 
             flash("Select file.", "danger")
@@ -80,41 +81,42 @@ def upload():
         print(text)
         print("=" * 50)
         
+        print("2. OCR done")
+        
+        print("2.5 Calling AI...")
+
         analysis = analyze_document(text)
 
-        document = Document(  # pyrefly: ignore[bad-argument-type]
+        print("3. AI done")
+        print(analysis)
+        ai = analysis
+       
 
+        document = Document(
             filename=unique_name,
-
             original_name=original_name,
-            
             category=analysis["category"],
-            
             file_size=os.path.getsize(upload_path),
-
-            owner_id=int(current_user.id),
-
+            owner_id=current_user.id,
             extracted_text=text,
-
             is_encrypted=True,
-            
             ai_summary=analysis["summary"],
-            
             ai_category=analysis["category"],
-    
             ai_confidence=analysis["confidence"],
-         
-            ai_analysis=str(analysis)
-        )
+            ai_analysis=json.dumps(analysis, indent=2)
+)           
+        print("4. Creating document")
             
             
 
         db.session.add(document)
+        print("5. Added")
 
         db.session.commit()
-
+        print("6. Committed")
+        
         flash("Document uploaded successfully.", "success")
-
+        print("7. Redirect")
         return redirect(url_for("dashboard.dashboard"))
 
     return render_template("dashboard/upload.html")

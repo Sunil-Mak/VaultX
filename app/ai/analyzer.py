@@ -1,10 +1,8 @@
 import json
-
-from .gemini import MODEL
-
+from .gemini import client, MODEL
 
 def analyze_document(text):
-    prompt = f"""
+    prompt = f'''
 You are VaultX AI.
 
 Analyze document.
@@ -12,17 +10,23 @@ Analyze document.
 Return JSON only.
 
 {{
-    "summary":"",
-    "category":"",
-    "confidence":0
+  "summary": "",
+  "category": "",
+  "confidence": 0
 }}
 
 Document:
 
 {text}
-"""
+'''
 
-    response = MODEL.generate_content(prompt)
+    response = client.models.generate_content(
+        model=MODEL,
+        contents=prompt,
+    )
+
+    print("Raw AI response:")
+    print(response.text)
 
     result = response.text.strip()
 
