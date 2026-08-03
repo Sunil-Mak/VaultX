@@ -13,7 +13,8 @@ def index():
 @dashboard_bp.route("/dashboard")
 @login_required
 def dashboard():
-
+    print("DASHBOARD ROUTE CALLED")
+    
     documents = (
         Document.query
         .filter_by(owner_id=current_user.id)

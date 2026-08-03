@@ -50,28 +50,15 @@ class Document(db.Model):
 
     __tablename__ = "documents"
 
-    id = db.Column(
-        db.Integer,
-        primary_key=True
-    )
+    id = db.Column(db.Integer, primary_key=True)
 
-    filename = db.Column(
-        db.String(255),
-        nullable=False
-    )
+    filename = db.Column(db.String(255), nullable=False)
 
-    original_name = db.Column(
-        db.String(255),
-        nullable=False
-    )
+    original_name = db.Column(db.String(255), nullable=False)
 
-    category = db.Column(
-        db.String(100)
-    )
+    category = db.Column(db.String(100))
 
-    file_size = db.Column(
-        db.Integer
-    )
+    file_size = db.Column(db.Integer)
 
     uploaded_at = db.Column(
         db.DateTime,
@@ -83,16 +70,24 @@ class Document(db.Model):
         db.ForeignKey("users.id")
     )
 
-    extracted_text = db.Column(
-        db.Text
-    )
+    extracted_text = db.Column(db.Text)
 
     is_encrypted = db.Column(
         db.Boolean,
         default=True
     )
 
+    ai_summary = db.Column(db.Text)
+
+    ai_category = db.Column(db.String(100))
+
+    ai_confidence = db.Column(db.Integer)
+
+    ai_analysis = db.Column(db.Text)
+
     user = db.relationship(
         "User",
         backref="documents"
     )
+
+   

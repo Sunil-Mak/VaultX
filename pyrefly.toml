@@ -1,0 +1,4 @@
+[pyrefly]
+# Point Pyrefly to the virtual environment so it can find installed packages
+python_interpreter = ".venv/bin/python"
+venv_path = ".venv"
