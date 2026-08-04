@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-header">
+
+  <div>
+    <h1>{{ document.original_name }}</h1>
+    <p>AI Analysis & OCR Result</p>
+  </div>
+
+  <div class="header-actions">
+
+    <a href="{{ url_for('dashboard.dashboard') }}" class="back-btn">
+      <i class="fa-solid fa-arrow-left"></i>
+      Back
+    </a>
+
+    <a href="{{ url_for('documents.download', document_id=document.id) }}" class="download-btn">
+      <i class="fa-solid fa-download"></i>
+      Download
+    </a>
+
+  </div>
+
+</div>
+
+<div class="document-detail">
+
+  <div class="info-grid">
+
+    <div class="info-card">
+      <h5>Category</h5>
+      <p>{{ document.ai_category }}</p>
+    </div>
+
+    <div class="info-card">
+      <h5>Confidence</h5>
+      <p>{{ "%.0f"|format(document.ai_confidence * 100) }}%</p>
+    </div>
+
+    <div class="info-card">
+      <h5>Uploaded</h5>
+      <p>{{ document.uploaded_at }}</p>
+    </div>
+
+    <div class="info-card">
+      <h5>Size</h5>
+      <p>{{ document.file_size }} bytes</p>
+    </div>
+
+  </div>
+
+  <div class="detail-card">
+    <div class="card-header">
+      <h3>
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        AI Summary
+      </h3>
+    </div>
+
+    <div class="summary-box">
+      {% if document.ai_summary %}
+      <p>{{ document.ai_summary }}</p>
+      {% else %}
+      <p class="empty-text">
+        AI summary not available.
+      </p>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="detail-card">
+    <div class="card-header">
+      <h3>
+        <i class="fa-solid fa-file-lines"></i>
+        OCR Text
+      </h3>
+
+      <button class="copy-btn" onclick="copyOCR()">
+        <i class="fa-regular fa-copy"></i>
+        Copy
+      </button>
+    </div>
+
+    {% if document.extracted_text %}
+    <pre id="ocrText" class="ocr-box">{{ document.extracted_text }}</pre>
+    {% else %}
+    <div class="empty-text">
+      No OCR text found.
+    </div>
+    {% endif %}
+  </div>
+
+  <script>
+    function copyOCR() {
+      const text = document.getElementById("ocrText").innerText;
+      navigator.clipboard.writeText(text);
+
+      const btn = document.querySelector(".copy-btn");
+      btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied';
+
+      setTimeout(() => {
+        btn.innerHTML =
+          '<i class="fa-regular fa-copy"></i> Copy';
+      }, 2000);
+    }
+  </script>
+
+  {% endblock %}

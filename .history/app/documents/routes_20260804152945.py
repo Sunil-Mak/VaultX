@@ -125,18 +125,10 @@ def upload():
 @documents_bp.route("/download/<int:document_id>")
 @login_required
 def download(document_id):
-    print("Requested ID:", document_id)
-    print("Current User:", current_user.id)
-    print("All Docs:", [(d.id, d.owner_id) for d in Document.query.all()])
     document = Document.query.filter_by(
         id=document_id,
         owner_id=current_user.id
     ).first_or_404()
-    print(current_app.config["UPLOAD_FOLDER"])
-    print(document.filename)
-    print(os.path.exists(
-    os.path.join(current_app.config["UPLOAD_FOLDER"], document.filename)
-    ))
 
     return send_from_directory(
         current_app.config["UPLOAD_FOLDER"],

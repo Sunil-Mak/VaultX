@@ -125,18 +125,10 @@ def upload():
 @documents_bp.route("/download/<int:document_id>")
 @login_required
 def download(document_id):
-    print("Requested ID:", document_id)
-    print("Current User:", current_user.id)
-    print("All Docs:", [(d.id, d.owner_id) for d in Document.query.all()])
     document = Document.query.filter_by(
         id=document_id,
         owner_id=current_user.id
     ).first_or_404()
-    print(current_app.config["UPLOAD_FOLDER"])
-    print(document.filename)
-    print(os.path.exists(
-    os.path.join(current_app.config["UPLOAD_FOLDER"], document.filename)
-    ))
 
     return send_from_directory(
         current_app.config["UPLOAD_FOLDER"],
@@ -145,7 +137,7 @@ def download(document_id):
         download_name=document.original_name
     )  
     
-@documents_bp.route("/delete/<int:document_id>", methods=["POST"])
+@documents_bp.route("/delete/<int:document_id>")
 @login_required
 def delete(document_id):
     document = Document.query.filter_by(
@@ -153,19 +145,16 @@ def delete(document_id):
         owner_id=current_user.id
     ).first_or_404()
 
-    file_path = os.path.join(
-        current_app.config["UPLOAD_FOLDER"],
-        document.filename
-    )
+    file_path = document.filename
 
-    if os.path.exists(file_path):
+    if file_path and os.path.exists(file_path):
         os.remove(file_path)
 
     db.session.delete(document)
     db.session.commit()
 
-    flash("Document deleted.", "success")
-    return redirect(url_for("dashboard.dashboard"))    
+    flash("Document deleted successfully.", "success")
+    return redirect(url_for("dashboard.dashboard"))
 
 @documents_bp.route("/edit/<int:document_id>", methods=["GET", "POST"])
 @login_required
@@ -203,3 +192,24 @@ def view(document_id):
     
   
     
+@documents_bp.route("/delete/<int:document_id>", methods=["POST"])
+@login_required
+def delete(document_id):
+    document = Document.query.filter_by(
+        id=document_id,
+        owner_id=current_user.id
+    ).first_or_404()
+
+    file_path = os.path.join(
+        current_app.config["UPLOAD_FOLDER"],
+        document.filename
+    )
+
+    if os.path.exists(file_path):
+        os.remove(file_path)
+
+    db.session.delete(document)
+    db.session.commit()
+
+    flash("Document deleted.", "success")
+    return redirect(url_for("dashboard.dashboard"))    
