@@ -170,10 +170,7 @@ Dashboard | VaultX
 
                             <td>
                                 {% if document.is_encrypted %}
-                                <span class="status-badge">
-                                    <i class="fa-solid fa-lock"></i>
-                                    Encrypted
-                                </span>
+                                <span class="badge success">Encrypted</span>
                                 {% else %}
                                 <span class="badge pending">Pending</span>
                                 {% endif %}
@@ -195,14 +192,10 @@ Dashboard | VaultX
                                     <i class="fa-solid fa-pen"></i>
                                 </a>
 
-                                <form action="{{ url_for('documents.delete', document_id=document.id) }}" method="POST"
-                                    style="display:inline;">
-
-                                    <button type="submit" class="action-btn delete" title="Delete">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </button>
-
-                                </form>
+                                <a href="{{ url_for('documents.delete', document_id=document.id) }}"
+                                    class="action-btn delete" title="Delete">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
                             </td>
 
 

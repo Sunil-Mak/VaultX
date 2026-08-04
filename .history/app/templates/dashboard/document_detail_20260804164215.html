@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>{{ document.original_name }}</h2>
+
+<hr>
+
+<p><strong>Category:</strong> {{ document.ai_category }}</p>
+
+<p><strong>Confidence:</strong> {{ "%.0f"|format(document.ai_confidence * 100) }}%</p>
+
+<p><strong>Uploaded:</strong> {{ document.uploaded_at }}</p>
+
+<p><strong>Size:</strong> {{ document.file_size }} bytes</p>
+
+<hr>
+
+<div class="document-detail">
+
+  <div class="info-grid">
+
+    <div class="info-card">
+      <h5>Category</h5>
+      <p>{{ document.ai_category }}</p>
+    </div>
+
+    <div class="info-card">
+      <h5>Confidence</h5>
+      <p>{{ document.ai_confidence }}%</p>
+    </div>
+
+    <div class="info-card">
+      <h5>Uploaded</h5>
+    </div>
+
+  </div>
+
+  <div class="detail-card">
+    <div class="card-header">
+      <h3>
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        AI Summary
+      </h3>
+    </div>
+
+    <div class="summary-box">
+      {{ document.ai_summary }}
+    </div>
+  </div>
+
+  <div class="detail-card">
+    <div class="card-header">
+      <h3>
+        <i class="fa-solid fa-file-lines"></i>
+        OCR Text
+      </h3>
+
+      <button class="copy-btn" onclick="copyOCR()">
+        <i class="fa-regular fa-copy"></i>
+        Copy
+      </button>
+    </div>
+
+    <pre id="ocrText" class="ocr-box">{{ document.extracted_text }}</pre>
+  </div>
+
+  <script>
+    function copyOCR() {
+      const text = document.getElementById("ocrText").innerText;
+      navigator.clipboard.writeText(text);
+
+      const btn = document.querySelector(".copy-btn");
+      btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied';
+
+      setTimeout(() => {
+        btn.innerHTML =
+          '<i class="fa-regular fa-copy"></i> Copy';
+      }, 2000);
+    }
+  </script>
+
+  {% endblock %}

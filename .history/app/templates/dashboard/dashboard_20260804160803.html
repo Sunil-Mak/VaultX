@@ -195,14 +195,10 @@ Dashboard | VaultX
                                     <i class="fa-solid fa-pen"></i>
                                 </a>
 
-                                <form action="{{ url_for('documents.delete', document_id=document.id) }}" method="POST"
-                                    style="display:inline;">
-
-                                    <button type="submit" class="action-btn delete" title="Delete">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </button>
-
-                                </form>
+                                <a href="{{ url_for('documents.delete', document_id=document.id) }}"
+                                    class="action-btn delete" title="Delete">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
                             </td>
 
 

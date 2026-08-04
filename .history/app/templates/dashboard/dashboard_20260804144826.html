@@ -148,60 +148,38 @@ Dashboard | VaultX
 
                         <tr>
 
-                            <td class="document-name">
-                                <div class="doc-title">
-                                    {{ document.original_name }}
-                                </div>
+                            <td>{{ document.original_name }}</td>
 
-                                <div class="doc-meta">
-                                    {{ (document.file_size/1024)|round(1) }} KB
-                                </div>
-                            </td>
-
-                            <td>
-                                <div class="category-name">
-                                    {{ document.ai_category }}
-                                </div>
-
-                                <div class="confidence">
-                                    {{ document.ai_confidence }}% confidence
-                                </div>
-                            </td>
+                            <td>{{ document.category or "Uncategorized" }}</td>
 
                             <td>
                                 {% if document.is_encrypted %}
-                                <span class="status-badge">
-                                    <i class="fa-solid fa-lock"></i>
-                                    Encrypted
-                                </span>
+                                <span class="badge success">Encrypted</span>
                                 {% else %}
                                 <span class="badge pending">Pending</span>
                                 {% endif %}
                             </td>\
 
-                            <td class="actions">
-                                <a href="{{ url_for('documents.view', document_id=document.id) }}"
-                                    class="action-btn view" title="View">
+                            <td>
+
+                                <a href="{{ url_for('documents.view', document_id=document.id) }}">
                                     <i class="fa-solid fa-eye"></i>
                                 </a>
 
-                                <a href="{{ url_for('documents.download', document_id=document.id) }}"
-                                    class="action-btn download" title="Download">
-                                    <i class="fa-solid fa-download"></i>
+                                <a href="{{ url_for('documents.edit', document_id=document.id) }}" class="btn-edit">
+                                    <i class="fa-solid fa-pen"></i>
                                 </a>
 
-                                <a href="{{ url_for('documents.edit', document_id=document.id) }}"
-                                    class="action-btn edit" title="Edit">
-                                    <i class="fa-solid fa-pen"></i>
+                                <a href="{{ url_for('documents.download', document_id=document.id) }}"
+                                    class="btn-download">
+                                    <i class="fa-solid fa-download"></i>
                                 </a>
 
                                 <form action="{{ url_for('documents.delete', document_id=document.id) }}" method="POST"
                                     style="display:inline;">
-
-                                    <button type="submit" class="action-btn delete" title="Delete">
+                                    <button type="submit" class="btn-delete">
                                         <i class="fa-solid fa-trash"></i>
                                     </button>
-
                                 </form>
                             </td>
 
