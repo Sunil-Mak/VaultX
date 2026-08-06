@@ -44,7 +44,6 @@ Document:
         }
 
     except Exception as e:
-        print(e)
         current_app.logger.exception("Gemini analysis failed")
         return {
             "summary": "AI analysis failed.",

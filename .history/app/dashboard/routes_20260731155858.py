@@ -13,7 +13,7 @@ def index():
 @dashboard_bp.route("/dashboard")
 @login_required
 def dashboard():
-    
+    print("DASHBOARD ROUTE CALLED")
     
     documents = (
         Document.query
