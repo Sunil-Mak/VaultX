@@ -1,4 +1,5 @@
 import json
+
 from google.genai.errors import ServerError
 
 
@@ -42,7 +43,7 @@ Document:
             "confidence": 0
         }
 
-    except Exception as e:
+    except Exception:
         current_app.logger.exception("Gemini analysis failed")
         return {
             "summary": "AI analysis failed.",

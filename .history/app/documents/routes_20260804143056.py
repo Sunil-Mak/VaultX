@@ -1,35 +1,26 @@
+import json
 import os
 from uuid import uuid4
 
 from flask import (
+    current_app,
+    flash,
+    redirect,
     render_template,
     request,
-    redirect,
-    flash,
-    current_app,
+    send_from_directory,
     url_for,
-    send_from_directory
 )
-
-from flask_login import (
-    login_required,
-    current_user
-)
-
-from sqlalchemy import text
+from flask_login import current_user, login_required
 from werkzeug.utils import secure_filename
 
 from app.ai.analyzer import analyze_document
 
-from . import documents_bp
-from .utils import allowed_file
-
 from ..extensions import db
 from ..models import Document
+from . import documents_bp
 from .ocr import extract_text
-
-import json
-
+from .utils import allowed_file
 
 
 @documents_bp.route("/upload", methods=["GET", "POST"])

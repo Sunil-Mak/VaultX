@@ -4,7 +4,7 @@ from flask import current_app
 from google import genai
 from google.genai.errors import ServerError
 
-MODEL = "gemini-3.5-flash"
+MODEL = "gemini-2.5-flash"
 
 
 def analyze_document(text):

@@ -1,6 +1,7 @@
 import json
-from google.genai.errors import ServerError
+
 from flask import current_app
+from google.genai.errors import ServerError
 
 
 def analyze_document(text):
@@ -43,7 +44,7 @@ Document:
             "confidence": 0
         }
 
-    except Exception as e:
+    except Exception:
         current_app.logger.exception("Gemini analysis failed")
         return {
             "summary": "AI analysis failed.",

@@ -1,8 +1,8 @@
 from flask import render_template
-from flask_login import login_required, current_user
+from flask_login import current_user, login_required
 
-from . import dashboard_bp
 from ..models import Document
+from . import dashboard_bp
 
 
 @dashboard_bp.route("/")

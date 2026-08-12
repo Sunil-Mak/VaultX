@@ -1,6 +1,7 @@
 import json
-from google.genai.errors import ServerError
+
 from flask import current_app
+from google.genai.errors import ServerError
 
 
 def analyze_document(text):

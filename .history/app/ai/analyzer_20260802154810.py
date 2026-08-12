@@ -1,5 +1,7 @@
 import json
-from .gemini import client, MODEL
+
+from .gemini import MODEL, client
+
 
 def analyze_document(text):
     prompt = f'''

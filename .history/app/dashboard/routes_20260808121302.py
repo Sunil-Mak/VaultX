@@ -1,6 +1,7 @@
-from flask import render_template
+from flask import render_template, request
 from flask_login import current_user, login_required
 
+from ..extensions import db
 from ..models import Document
 from . import dashboard_bp
 
@@ -13,11 +14,25 @@ def index():
 @dashboard_bp.route("/dashboard")
 @login_required
 def dashboard():
-    
-    
-    documents = (
+
+    query = request.args.get("q", "").strip()
+
+    documents_query = (
         Document.query
         .filter_by(owner_id=current_user.id)
+    )
+
+    if query:
+        documents_query = documents_query.filter(
+            db.or_(
+                Document.original_name.ilike(f"%{query}%"),
+                Document.extracted_text.ilike(f"%{query}%"),
+                Document.ai_summary.ilike(f"%{query}%")
+            )
+        )
+
+    documents = (
+        documents_query
         .order_by(Document.uploaded_at.desc())
         .all()
     )
@@ -32,5 +47,6 @@ def dashboard():
     return render_template(
         "dashboard/dashboard.html",
         documents=documents,
-        stats=stats
+        stats=stats,
+        query=query
     )

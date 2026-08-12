@@ -1,12 +1,12 @@
 from datetime import datetime
 
-from flask import render_template, request, redirect, url_for, flash
-from flask_login import login_user, logout_user, login_required
-from werkzeug.security import generate_password_hash, check_password_hash
+from flask import flash, redirect, render_template, request, url_for
+from flask_login import login_required, login_user, logout_user
+from werkzeug.security import check_password_hash, generate_password_hash
 
-from . import auth_bp
 from ..extensions import db
 from ..models import User
+from . import auth_bp
 
 
 @auth_bp.route("/login", methods=["GET", "POST"])

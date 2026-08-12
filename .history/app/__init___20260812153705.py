@@ -1,6 +1,6 @@
 from flask import Flask
 
-from config import Config
+from config import Confi
 from .extensions import db, login_manager
 
 
@@ -11,8 +11,7 @@ def create_app(config_class=Config):
     db.init_app(app)
     login_manager.init_app(app)
 
-    from .auth import auth_bp
-    
+    from config import Config
     from .dashboard import dashboard_bp
     from .documents import documents_bp
 
